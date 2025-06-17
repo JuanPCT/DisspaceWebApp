@@ -1,0 +1,323 @@
+/* Estilos personalizados para DisspaceWebApp */
+
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+}
+
+/* Utilidades generales */
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Feature Cards */
+.feature-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.feature-icon {
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+}
+
+/* Navbar personalizada */
+.navbar-brand {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+/* Cards del dashboard */
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Progress bars personalizadas */
+.progress {
+    background-color: #e9ecef;
+    border-radius: 10px;
+}
+
+.progress-bar {
+    border-radius: 10px;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 40px;
+    bottom: -20px;
+    width: 2px;
+    background-color: #e9ecef;
+}
+
+/* Badges personalizados */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.65rem;
+}
+
+/* Botones personalizados */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Forms personalizados */
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+.input-group-text {
+    border-radius: 8px 0 0 8px;
+    border: 2px solid #e9ecef;
+    border-right: none;
+    background-color: #f8f9fa;
+}
+
+.input-group .form-control {
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+}
+
+.input-group:focus-within .input-group-text {
+    border-color: var(--primary-color);
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+/* Alerts personalizados */
+.alert {
+    border: none;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+/* Stats mejoradas */
+.stat-item h3 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+/* Tables responsivas */
+.table-hover tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+/* Authentication pages */
+.auth-page {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Profile page */
+.profile-avatar {
+    transition: all 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.05);
+}
+
+/* Loading animations */
+.loading {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1rem;
+    }
+    
+    .feature-card {
+        margin-bottom: 1rem;
+    }
+    
+    .stat-item {
+        margin-bottom: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .btn-lg {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-fluid .row .col-lg-6 {
+        padding: 1rem;
+    }
+    
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+}
+
+/* Dark mode support (opcional) */
+@media (prefers-color-scheme: dark) {
+    .feature-card {
+        background-color: #2d3748;
+        color: #e2e8f0;
+        border-color: #4a5568;
+    }
+    
+    .card {
+        background-color: #2d3748;
+        color: #e2e8f0;
+    }
+}
+
+/* Animaciones adicionales */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0b5ed7;
+}

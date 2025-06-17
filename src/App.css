@@ -1,0 +1,109 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.App-header h1 {
+  margin: 0 0 1rem 0;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.App-header p {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.version {
+  font-size: 0.9rem !important;
+  opacity: 0.7 !important;
+  margin-top: 1rem !important;
+}
+
+.App-main {
+  flex: 1;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.features h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e1e5e9;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card h3 {
+  color: #667eea;
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .App-header {
+    padding: 1.5rem;
+  }
+  
+  .App-header h1 {
+    font-size: 2rem;
+  }
+  
+  .App-main {
+    padding: 2rem 1rem;
+  }
+  
+  .features h2 {
+    font-size: 2rem;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+  }
+}

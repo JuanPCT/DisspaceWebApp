@@ -1,0 +1,347 @@
+<div class="container py-4">
+    <!-- Header del Dashboard -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="h2 mb-0">
+                        <i class="bi bi-speedometer2 me-2"></i>
+                        Dashboard
+                    </h1>
+                    <p class="text-muted mb-0">
+                        Bienvenido de vuelta, <strong><%= user.first_name %></strong>
+                    </p>
+                </div>
+                <div class="text-end">
+                    <small class="text-muted">
+                        Último acceso: 
+                        <% if (user.last_login) { %>
+                            <%= new Date(user.last_login).toLocaleDateString('es-ES', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            }) %>
+                        <% } else { %>
+                            Primera vez
+                        <% } %>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="row mb-4">
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">Proyectos</h4>
+                            <h2 class="mb-0">12</h2>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="bi bi-folder-fill display-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-success">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">Tareas</h4>
+                            <h2 class="mb-0">48</h2>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="bi bi-check-square-fill display-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-warning">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">Usuarios</h4>
+                            <h2 class="mb-0"><%= stats.totalUsers %></h2>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="bi bi-people-fill display-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-info">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">Progreso</h4>
+                            <h2 class="mb-0">75%</h2>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="bi bi-graph-up-arrow display-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="row">
+        <!-- Proyectos Recientes -->
+        <div class="col-lg-8 mb-4">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="bi bi-folder me-2"></i>
+                        Proyectos Recientes
+                    </h5>
+                    <button class="btn btn-primary btn-sm">
+                        <i class="bi bi-plus me-1"></i>
+                        Nuevo Proyecto
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="border rounded p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="mb-0">DisspaceWebApp</h6>
+                                    <span class="badge bg-success">Activo</span>
+                                </div>
+                                <p class="text-muted small mb-2">Desarrollo de la aplicación web principal</p>
+                                <div class="progress mb-2" style="height: 5px;">
+                                    <div class="progress-bar bg-success" style="width: 85%"></div>
+                                </div>
+                                <small class="text-muted">85% completado</small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="border rounded p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="mb-0">API Backend</h6>
+                                    <span class="badge bg-warning">En Progreso</span>
+                                </div>
+                                <p class="text-muted small mb-2">Desarrollo de la API RESTful</p>
+                                <div class="progress mb-2" style="height: 5px;">
+                                    <div class="progress-bar bg-warning" style="width: 60%"></div>
+                                </div>
+                                <small class="text-muted">60% completado</small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="border rounded p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="mb-0">Documentación</h6>
+                                    <span class="badge bg-info">Planificado</span>
+                                </div>
+                                <p class="text-muted small mb-2">Documentación técnica del proyecto</p>
+                                <div class="progress mb-2" style="height: 5px;">
+                                    <div class="progress-bar bg-info" style="width: 25%"></div>
+                                </div>
+                                <small class="text-muted">25% completado</small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="border rounded p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="mb-0">Testing</h6>
+                                    <span class="badge bg-secondary">Pendiente</span>
+                                </div>
+                                <p class="text-muted small mb-2">Pruebas unitarias e integración</p>
+                                <div class="progress mb-2" style="height: 5px;">
+                                    <div class="progress-bar bg-secondary" style="width: 10%"></div>
+                                </div>
+                                <small class="text-muted">10% completado</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actividad Reciente -->
+        <div class="col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-clock-history me-2"></i>
+                        Actividad Reciente
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="timeline">
+                        <div class="timeline-item mb-3">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <span class="badge bg-primary rounded-pill">
+                                        <i class="bi bi-plus"></i>
+                                    </span>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h6 class="mb-1">Proyecto creado</h6>
+                                    <p class="text-muted small mb-1">DisspaceWebApp iniciado</p>
+                                    <small class="text-muted">Hace 2 horas</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-3">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <span class="badge bg-success rounded-pill">
+                                        <i class="bi bi-check"></i>
+                                    </span>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h6 class="mb-1">Tarea completada</h6>
+                                    <p class="text-muted small mb-1">Sistema de autenticación</p>
+                                    <small class="text-muted">Hace 5 horas</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-3">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <span class="badge bg-info rounded-pill">
+                                        <i class="bi bi-person-plus"></i>
+                                    </span>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h6 class="mb-1">Usuario registrado</h6>
+                                    <p class="text-muted small mb-1">Nuevo miembro del equipo</p>
+                                    <small class="text-muted">Ayer</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-3">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <span class="badge bg-warning rounded-pill">
+                                        <i class="bi bi-exclamation"></i>
+                                    </span>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h6 class="mb-1">Deadline próximo</h6>
+                                    <p class="text-muted small mb-1">API Backend - 3 días</p>
+                                    <small class="text-muted">Hace 3 días</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tareas Pendientes -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="bi bi-list-check me-2"></i>
+                        Tareas Pendientes
+                    </h5>
+                    <button class="btn btn-success btn-sm">
+                        <i class="bi bi-plus me-1"></i>
+                        Nueva Tarea
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Tarea</th>
+                                    <th>Proyecto</th>
+                                    <th>Prioridad</th>
+                                    <th>Deadline</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Implementar dashboard</strong>
+                                        <br>
+                                        <small class="text-muted">Crear interfaz de usuario del dashboard</small>
+                                    </td>
+                                    <td>DisspaceWebApp</td>
+                                    <td><span class="badge bg-danger">Alta</span></td>
+                                    <td>2025-06-20</td>
+                                    <td><span class="badge bg-warning">En Progreso</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-success">
+                                            <i class="bi bi-check"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Configurar base de datos</strong>
+                                        <br>
+                                        <small class="text-muted">Setup inicial de MySQL</small>
+                                    </td>
+                                    <td>API Backend</td>
+                                    <td><span class="badge bg-warning">Media</span></td>
+                                    <td>2025-06-18</td>
+                                    <td><span class="badge bg-success">Completado</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-secondary" disabled>
+                                            <i class="bi bi-check"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Escribir documentación API</strong>
+                                        <br>
+                                        <small class="text-muted">Documentar endpoints y ejemplos</small>
+                                    </td>
+                                    <td>Documentación</td>
+                                    <td><span class="badge bg-info">Baja</span></td>
+                                    <td>2025-06-25</td>
+                                    <td><span class="badge bg-secondary">Pendiente</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-success">
+                                            <i class="bi bi-check"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

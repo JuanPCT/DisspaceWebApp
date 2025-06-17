@@ -1,0 +1,47 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 text-center">
+            <div class="error-content">
+                <h1 class="display-1 fw-bold text-danger">500</h1>
+                <h2 class="mb-4">Error del servidor</h2>
+                <p class="lead text-muted mb-4">
+                    Algo salió mal en nuestros servidores. Estamos trabajando para solucionarlo.
+                </p>
+                <% if (process.env.NODE_ENV === 'development' && error.stack) { %>
+                    <div class="alert alert-warning text-start mt-4">
+                        <h6>Detalles del error (solo en desarrollo):</h6>
+                        <pre class="small"><%= error.stack %></pre>
+                    </div>
+                <% } %>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <a href="/" class="btn btn-primary btn-lg">
+                        <i class="bi bi-house-door me-2"></i>
+                        Ir al Inicio
+                    </a>
+                    <button onclick="location.reload()" class="btn btn-outline-secondary btn-lg">
+                        <i class="bi bi-arrow-clockwise me-2"></i>
+                        Intentar de Nuevo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.error-content h1 {
+    font-size: 8rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .error-content h1 {
+        font-size: 4rem;
+    }
+}
+
+pre {
+    max-height: 300px;
+    overflow-y: auto;
+}
+</style>
