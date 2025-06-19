@@ -280,9 +280,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function initializeDashboard() {
         // Actualizar estadísticas en tiempo real (simulado)
         setInterval(updateStats, 30000); // Cada 30 segundos
-        
+
         // Configurar gráficos si existen
         setupCharts();
+
+        // Configurar sidebar
+        setupSidebarToggle();
     }
     
     function updateStats() {
@@ -321,6 +324,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 maintainAspectRatio: false
             }
         });
+    }
+
+    function setupSidebarToggle() {
+        const wrapper = document.getElementById('dashboard-wrapper');
+        const toggleBtn = document.getElementById('sidebarToggle');
+        if (wrapper && toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                wrapper.classList.toggle('toggled');
+            });
+        }
     }
     
     // Loading states

@@ -321,3 +321,17 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #0b5ed7;
 }
+
+/* Dashboard sidebar */
+#dashboard-wrapper {
+    min-height: 100vh;
+}
+
+#sidebar {
+    width: 220px;
+    transition: margin-left 0.3s;
+}
+
+#dashboard-wrapper.toggled #sidebar {
+    margin-left: -220px;
+}
