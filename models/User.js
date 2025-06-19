@@ -9,6 +9,7 @@ class User {
         this.password = userData.password;
         this.first_name = userData.first_name;
         this.last_name = userData.last_name;
+        this.role = userData.role;
         this.created_at = userData.created_at;
         this.updated_at = userData.updated_at;
         this.is_active = userData.is_active;
@@ -23,8 +24,8 @@ class User {
             const hashedPassword = await bcrypt.hash(userData.password, saltRounds);
 
             const sql = `
-                INSERT INTO users (username, email, password, first_name, last_name) 
-                VALUES (?, ?, ?, ?, ?)
+                INSERT INTO users (username, email, password, first_name, last_name, role)
+                VALUES (?, ?, ?, ?, ?, ?)
             `;
             
             const params = [
@@ -32,7 +33,8 @@ class User {
                 userData.email,
                 hashedPassword,
                 userData.first_name,
-                userData.last_name
+                userData.last_name,
+                userData.role || 'user'
             ];
 
             const result = await query(sql, params);
@@ -146,6 +148,7 @@ class User {
             first_name: this.first_name,
             last_name: this.last_name,
             full_name: `${this.first_name} ${this.last_name}`,
+            role: this.role,
             created_at: this.created_at,
             last_login: this.last_login
         };
@@ -155,9 +158,9 @@ class User {
     static async findAll(limit = 50, offset = 0) {
         try {
             const sql = `
-                SELECT id, username, email, first_name, last_name, created_at, last_login, is_active 
-                FROM users 
-                ORDER BY created_at DESC 
+                SELECT id, username, email, first_name, last_name, role, created_at, last_login, is_active
+                FROM users
+                ORDER BY created_at DESC
                 LIMIT ? OFFSET ?
             `;
             const users = await query(sql, [limit, offset]);
