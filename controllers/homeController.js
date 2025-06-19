@@ -2,9 +2,9 @@ const User = require('../models/User');
 
 // Página principal
 const home = (req, res) => {
-    res.render('index', { 
-        title: 'DisspaceWebApp - Inicio',
-        layout: 'layouts/layout' 
+    res.render('landing', {
+        title: 'DisspaceWebApp',
+        layout: 'layouts/layout'
     });
 };
 
