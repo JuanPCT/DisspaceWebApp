@@ -26,10 +26,24 @@ Crea un archivo `.env` en la raíz con el siguiente contenido como ejemplo:
 ```dotenv
 PORT=5000
 MYSQL_URI=mysql://user:password@localhost:3306/mi_basededatos
+SESSION_SECRET=mi_secreto
 ```
 
 - `PORT` es opcional (5000 por defecto).
 - `MYSQL_URI` debe apuntar a tu instancia de MySQL.
+- `SESSION_SECRET` se utiliza para firmar la sesión de Express.
+
+## Preparación de la base de datos
+
+Crea una tabla `users` para almacenar a los usuarios registrados:
+
+```sql
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL
+);
+```
 
 ## Uso
 
