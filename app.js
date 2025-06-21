@@ -19,4 +19,10 @@ app.get('/', (req, res) => {
   res.render('index', { titulo: 'Hola desde EJS' });
 });
 
+// Vista de login
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
 export default app;
+
